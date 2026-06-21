@@ -1,4 +1,11 @@
-{{ config(materialized='view') }}
+-- renaming columns: clarity and consistency
+-- filteing rows: removing irrelevant or invalid records
+-- type casting: converting data types for consistency
+-- basic computations: i.e converting cents to dollards
+-- basic date transformations
+-- 1 to 1 source to stage
+
+-- {{ config(materialized='view') }}
 
 with source as (
 
