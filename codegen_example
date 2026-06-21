@@ -1,0 +1,5 @@
+# Instalar o Packages.yml com codegen
+# Rodar comando dbt deps
+# Complilar romando para automaticamente fazer o arquivo YAML correspondente
+
+{{ codegen.generate_source(schema_name= 'jaffle_shop', database_name= 'dbt-tutorial') }}
