@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: jaffle_shop
+  - name: jaffle_shop 
     database: dbt-tutorial
     schema: jaffle_shop
     # Na v2, tudo que é configuração de execução vai estritamente dentro do bloco config
