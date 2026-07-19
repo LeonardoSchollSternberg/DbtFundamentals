@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: jaffle_shop 
+    database: dbt-tutorial
+    schema: jaffle_shop
+    description: A clone of a Postgress application database.
+    # Na v2, tudo que é configuração de execução vai estritamente dentro do bloco config
+    config: 
+      loaded_at_field: _etl_loaded_at
+      freshness:
+        warn_after:
+          count: 12
+          period: hour
+        error_after:
+          count: 24
+          period: hour
+    tables:
+      - name: customers
+        description: Raw customer data.
+        columns:
+          - name: id
+            description: Primary key for the customer data.
+            data_tests:
+              - unique
+              - not_null
+        # Na v2, para anular a configuração herdada do topo, limpamos o campo de data e o freshness dentro do config da própria tabela
+        config:
+          loaded_at_field: null
+          freshness: null
+      - name: orders
+        description: Raw orders data.
+        columns:
+          - name: id
+            description: Primary data for the orders data.
+            data_tests:
+              - unique
+              - not_null
